@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -26,23 +21,8 @@ namespace aspnet
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync(@"<!DOCTYPE html>
-<html>
-  <head>
-    <title>FL0 sample</title>
-  </head>
-  <body>
-    Hello from the FL0 .NET Core ASP.NET template!
-  </body>
-</html>");
-                });
-            });
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
         }
     }
 }
